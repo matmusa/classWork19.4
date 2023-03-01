@@ -10,13 +10,12 @@ public class Main {
             Cast cast4 = new Cast("Stephon Lang", "Quarcitch");
             Director director = new Director("James", "Cameron");
             Cast[] casts = {cast, cast2, cast3, cast4};
-            Movie movie = new Movie("Avatar "
-                    , 2022, "Fantasy", director, casts);
-            Cast cast5 = new Cast("Tom Hanks ", "Poul Edgecomb");
+            Movie movie = new Movie("Avatar", 2022, "Fantasy", director, casts);
+            Cast cast5 = new Cast("Tom Hanks", "Poul Edgecomb");
             Cast cast6 = new Cast("David Morse", "Brutus'brutal'Howell");
             Cast cast7 = new Cast("Michel Klark Dungan", "John Coffey");
             Cast[] casts1 = {cast5, cast6, cast7};
-            Director director1 = new Director("Frank ", "Darobant");
+            Director director1 = new Director("Frank", "Darobant");
             Movie movie1 = new Movie("The green mile", 1999, "Drama", director1, casts1);
             Movie[] movies = {movie, movie1};
             Scanner scanner = new Scanner(System.in);

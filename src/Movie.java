@@ -81,12 +81,10 @@ public class Movie implements Findable {
 
     @Override
     public void findMovieByName(Movie[] movies) {
-        for (Movie m : movies
-        ) {
-
-            System.out.println("WRITE A NAME OF MOVIE: ");
-            String name = new Scanner(System.in).nextLine();
-            if (m.name.equals(name)) {
+        System.out.println("WRITE A NAME OF MOVIE: ");
+        String nameOfMovie = new Scanner(System.in).nextLine().toUpperCase();
+        for (Movie m : movies) {
+            if (m.getName().toUpperCase().equals(nameOfMovie)) {
                 System.out.println(m.toString());
             }
 
@@ -96,21 +94,16 @@ public class Movie implements Findable {
 
     @Override
     public void findMovieByActorName(Movie[] movies) {
+        System.out.println("WRITE A ACTOR NAME  : ");
+        String name = new Scanner(System.in).nextLine().toUpperCase();
         for (Movie m : movies
-        ) {
-
-            System.out.println("WRITE A ACTOR NAME  : ");
-            String name = new Scanner(System.in).nextLine();
-            for (Cast c : casts
-            ) {
-                if (c.getActorFullName().equals(name.toUpperCase(Locale.ROOT)))
-                    System.out.println(m.toString());
-            }
-
-
-        }
-
+        )
+            for (Cast c : m.getCasts()
+            )
+                if (c.getActorFullName().toUpperCase().equals(name))
+                    System.out.println(m);
     }
+
 
     @Override
     public void findMovieByYear(Movie[] movies) {
@@ -128,26 +121,29 @@ public class Movie implements Findable {
 
     @Override
     public void findMovieByDirector(Movie[] movies) {
+        System.out.println("WRITE A NAME OF DIRECTOR : ");
+        String nameOfDirector = new Scanner(System.in).nextLine().toUpperCase();
         for (Movie m : movies
         ) {
-
-            System.out.println("WRITE A NAME OF DIRECTOR : ");
-            String name = new Scanner(System.in).nextLine();
-            if (director.getName().equals(name)) {
+            if (m.getDirector().getDirecctorName().toUpperCase().equals(nameOfDirector)
+            ) {
                 System.out.println(m.toString());
+
             }
 
         }
+
     }
+
 
     @Override
     public void findMovieByDescription(Movie[] movies) {
-
+        System.out.println("WRITE A DISCRIPTION OF MOVIE  : ");
+        String name = new Scanner(System.in).nextLine();
         for (Movie m : movies
         ) {
 
-            System.out.println("WRITE A DISCRIPTION OF MOVIE  : ");
-            String name = new Scanner(System.in).nextLine();
+
             if (m.getDescription().equals(name)) {
                 System.out.println(m.toString());
             }
@@ -157,18 +153,18 @@ public class Movie implements Findable {
 
     @Override
     public void findMovieByRole(Movie[] movies) {
-
+        System.out.println("WRITE A NAME OF ROLE : ");
+        String roleName = new Scanner(System.in).nextLine().toUpperCase();
         for (Movie m : movies
-        ) {
-
-            System.out.println("WRITE A NAME OF ROLE : ");
-            String name = new Scanner(System.in).nextLine();
-            for (Cast c : casts
-            ) {
-                if (c.getRole().equals(name))
+        )
+            for (Cast c : m.getCasts()
+            )
+                if (c.getRole().toUpperCase().equals(roleName)) {
                     System.out.println(m.toString());
-            }
 
-        }
+                }
     }
 }
+
+
+

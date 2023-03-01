@@ -1,19 +1,20 @@
 public class Director {
 
-    private String name;
+    private String direcctorName;
   private String lastName;
 
-    public Director(String name, String lastName) {
-        this.name = name;
+
+    public Director(String direcctorName, String lastName) {
+        this.direcctorName = direcctorName;
         this.lastName = lastName;
     }
 
-    public String getName() {
-        return name;
+    public String getDirecctorName() {
+        return direcctorName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDirecctorName(String direcctorName) {
+        this.direcctorName = direcctorName;
     }
 
     public String getLastName() {
@@ -27,7 +28,7 @@ public class Director {
     @Override
     public String toString() {
         return "Director{" +
-                "name='" + name + '\'' +
+                "name='" + direcctorName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
