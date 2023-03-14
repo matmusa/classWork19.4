@@ -1,10 +1,25 @@
+import java.util.List;
+
 public interface Findable {
 
-    void getAllMovies(Movie[] movies);
-  void findMovieByName(Movie[] movies);
-  void findMovieByActorName(Movie[] movies);
- void findMovieByYear(Movie[] movies);
-  void findMovieByDirector(Movie[] movies);
-  void findMovieByDescription(Movie[] movies);
-  void findMovieByRole(Movie[] movies);
+    List<Movie> getAllMovies (List < Movie > movies);
+
+
+    void findMovieByName (List< Movie > movies);
+
+
+    void findMovieByActorName (List < Movie > movies);
+
+
+    void findMovieByYear (List < Movie > movies);
+
+
+    void findMovieByDirector (List < Movie > movies);
+
+
+    void findMovieByDescription (List < Movie > movies);
+
+
+    void findMovieByRole (List < Movie > movies);
+
 }

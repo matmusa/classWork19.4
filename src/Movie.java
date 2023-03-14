@@ -1,17 +1,15 @@
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
-public class Movie implements Findable {
+public class Movie  {
 
 
     private String name;
     private int year;
     private String description;
     private Director director;
-    private Cast[] casts;
+    private List<Cast> casts;
 
-    public Movie(String name, int year, String description, Director director, Cast[] casts) {
+    public Movie(String name, int year, String description, Director director, List<Cast> casts) {
         this.name = name;
         this.year = year;
         this.description = description;
@@ -51,119 +49,56 @@ public class Movie implements Findable {
         this.director = director;
     }
 
-    public Cast[] getCasts() {
+    public List<Cast> getCasts() {
         return casts;
     }
 
-    public void setCasts(Cast[] casts) {
+    public void setCasts(List<Cast> casts) {
         this.casts = casts;
     }
 
     @Override
     public String toString() {
-        return "\nMovie  :" +
-                "\nname : " + name +
-                "\n year :" + year +
-                "\n description :" + description +
-                "\ndirector :" + director +
-                "\ncasts :" + Arrays.toString(casts)
-                ;
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", description='" + description + '\'' +
+                ", director=" + director +
+                ", casts=" + casts +
+                '}';
     }
 
-    @Override
-    public void getAllMovies(Movie[] movies) {
-        for (Movie m : movies
-        ) {
-            System.out.println(m.toString());
 
+
+
+    public static Comparator<Movie> SortByNameFromAtoZ = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return o1.name.compareTo(o2.name);
         }
-    }
-
-    @Override
-    public void findMovieByName(Movie[] movies) {
-        System.out.println("WRITE A NAME OF MOVIE: ");
-        String nameOfMovie = new Scanner(System.in).nextLine().toUpperCase();
-        for (Movie m : movies) {
-            if (m.getName().toUpperCase().equals(nameOfMovie)) {
-                System.out.println(m.toString());
-            }
-
+    };
+    public static Comparator<Movie> SortbyNameFromZtoA = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return o2.name.compareTo(o1.name);
         }
-    }
-
-
-    @Override
-    public void findMovieByActorName(Movie[] movies) {
-        System.out.println("WRITE A ACTOR NAME  : ");
-        String name = new Scanner(System.in).nextLine().toUpperCase();
-        for (Movie m : movies
-        )
-            for (Cast c : m.getCasts()
-            )
-                if (c.getActorFullName().toUpperCase().equals(name))
-                    System.out.println(m);
-    }
-
-
-    @Override
-    public void findMovieByYear(Movie[] movies) {
-        for (Movie m : movies
-        ) {
-            System.out.println("WRITE A YEAR OF MOVIE: ");
-            int year = new Scanner(System.in).nextInt();
-            if (m.getYear() == year) {
-                System.out.println(m.toString());
-            }
-
-
+    };
+    public static Comparator<Movie> Ascending = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return o1.year - o2.year;
         }
-    }
+    };
 
-    @Override
-    public void findMovieByDirector(Movie[] movies) {
-        System.out.println("WRITE A NAME OF DIRECTOR : ");
-        String nameOfDirector = new Scanner(System.in).nextLine().toUpperCase();
-        for (Movie m : movies
-        ) {
-            if (m.getDirector().getDirecctorName().toUpperCase().equals(nameOfDirector)
-            ) {
-                System.out.println(m.toString());
 
-            }
-
+    public static Comparator<Movie> Descending = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return o2.year - o1.year;
         }
 
-    }
 
-
-    @Override
-    public void findMovieByDescription(Movie[] movies) {
-        System.out.println("WRITE A DISCRIPTION OF MOVIE  : ");
-        String name = new Scanner(System.in).nextLine();
-        for (Movie m : movies
-        ) {
-
-
-            if (m.getDescription().equals(name)) {
-                System.out.println(m.toString());
-            }
-
-        }
-    }
-
-    @Override
-    public void findMovieByRole(Movie[] movies) {
-        System.out.println("WRITE A NAME OF ROLE : ");
-        String roleName = new Scanner(System.in).nextLine().toUpperCase();
-        for (Movie m : movies
-        )
-            for (Cast c : m.getCasts()
-            )
-                if (c.getRole().toUpperCase().equals(roleName)) {
-                    System.out.println(m.toString());
-
-                }
-    }
+    };
 }
 
 
